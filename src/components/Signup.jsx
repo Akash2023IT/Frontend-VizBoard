@@ -14,6 +14,7 @@ const Signup = () => {
         setError('');
 
         try {
+            console.log('Attempting signup at:', `${API_BASE_URL}${API_ENDPOINTS.SIGNUP}`);
             const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.SIGNUP}`, {
                 method: 'POST',
                 headers: {
@@ -22,14 +23,18 @@ const Signup = () => {
                 body: JSON.stringify({ username, password })
             });
 
-            const data = await response.json();
-
-            if (response.ok) {
-                navigate('/login');
-            } else {
-                setError(data.message || 'Signup failed');
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('Signup failed:', errorText);
+                setError('Signup failed. Please try again.');
+                return;
             }
+
+            const data = await response.json();
+            console.log('Signup successful:', data);
+            navigate('/login');
         } catch (error) {
+            console.error('Network error:', error);
             setError('Network error. Please try again.');
         }
     };

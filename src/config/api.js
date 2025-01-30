@@ -1,10 +1,20 @@
-// Remove the trailing slash if present in the base URL
+// Define the base URL without any trailing slashes
 export const API_BASE_URL = 'https://backend-vizboard-1.onrender.com';
 
+// Helper function to join URLs properly
+const createUrl = (base, path) => {
+    return `${base.replace(/\/+$/, '')}/${path.replace(/^\/+/, '')}`;
+};
+
 export const API_ENDPOINTS = {
-    // Make sure we don't have double slashes in the URLs
-    SIGNUP: `${API_BASE_URL}/api/auth/signup`,
-    LOGIN: `${API_BASE_URL}/api/auth/login`,
-    PROJECTS: `${API_BASE_URL}/api/projects`,
-    TASKS: `${API_BASE_URL}/api/tasks`
-}; 
+    SIGNUP: '/api/auth/signup',
+    LOGIN: '/api/auth/login',
+    PROJECTS: '/api/projects',
+    TASKS: '/api/tasks'
+};
+
+// For debugging
+console.log('Full signup URL:', `${API_BASE_URL}${API_ENDPOINTS.SIGNUP}`);
+
+// For debugging - remove in production
+console.log('API Endpoints:', API_ENDPOINTS); 
