@@ -9,15 +9,24 @@ export const ProjectProvider = ({ children }) => {
 
     const fetchProjects = async () => {
         try {
+            console.log('Fetching projects from:', API_ENDPOINTS.PROJECTS);
+            const token = localStorage.getItem('token');
+            console.log('Using token:', token);
+            
             const response = await fetch(API_ENDPOINTS.PROJECTS, {
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Authorization': `Bearer ${token}`
                 }
             });
-            if (response.ok) {
-                const data = await response.json();
-                setProjects(data);
+            
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('Project fetch failed:', errorText);
+                return;
             }
+            
+            const data = await response.json();
+            setProjects(data);
         } catch (error) {
             console.error('Error fetching projects:', error);
         }
@@ -25,6 +34,7 @@ export const ProjectProvider = ({ children }) => {
 
     const createProject = async (name) => {
         try {
+            console.log('Creating project with URL:', API_ENDPOINTS.PROJECTS);
             const response = await fetch(API_ENDPOINTS.PROJECTS, {
                 method: 'POST',
                 headers: {
@@ -34,13 +44,18 @@ export const ProjectProvider = ({ children }) => {
                 body: JSON.stringify({ name })
             });
             
-            const data = await response.json();
-            if (response.ok) {
-                setProjects([...projects, data]);
-                return data;
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('Project creation failed:', errorText);
+                return null;
             }
+            
+            const data = await response.json();
+            setProjects([...projects, data]);
+            return data;
         } catch (error) {
             console.error('Error creating project:', error);
+            return null;
         }
     };
 
