@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../AuthContext';
-import { API_ENDPOINTS } from '../config/api';
+import { API_BASE_URL, API_ENDPOINTS } from '../config/api';
 import './Auth.css';
 
 const Login = () => {
@@ -16,7 +16,7 @@ const Login = () => {
         setError('');
 
         try {
-            const response = await fetch(API_ENDPOINTS.LOGIN, {
+            const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.LOGIN}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

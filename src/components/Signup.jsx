@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { API_ENDPOINTS } from '../config/api';
+import { API_BASE_URL, API_ENDPOINTS } from '../config/api';
 import './Auth.css';
 
 const Signup = () => {
@@ -14,7 +14,7 @@ const Signup = () => {
         setError('');
 
         try {
-            const response = await fetch(API_ENDPOINTS.SIGNUP, {
+            const response = await fetch(`${API_BASE_URL}${API_ENDPOINTS.SIGNUP}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
