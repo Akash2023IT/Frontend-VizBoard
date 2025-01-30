@@ -1,0 +1,95 @@
+.sidebar {
+    width: 250px;
+    background: #020817;
+    height: 100vh;
+    position: fixed;
+    left: -250px;
+    top: 60px;
+    transition: left 0.3s;
+    padding: 2rem 1rem;
+    color: white;
+    z-index: 1002;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 1rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.sidebar li:hover {
+    color: #998504;
+}
+
+.close-button {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.project-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.project-input {
+    flex: 1;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #998504;
+    border-radius: 4px;
+    color: white;
+}
+
+.add-project-btn {
+    background: #998504;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.project-list {
+    margin-top: 1rem;
+}
+
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.project-item span {
+    flex: 1;
+}
+
+.delete-project-btn {
+    background: none;
+    border: none;
+    color: #ff4444;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
+
+.delete-project-btn:hover {
+    color: #ff0000;
+} 

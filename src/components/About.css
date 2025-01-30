@@ -1,0 +1,164 @@
+.about-section {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: #01102c;
+  scroll-margin-top: 60px;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.content-box {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 30px;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.content-box:hover {
+  transform: translateY(-5px);
+}
+
+.about-content h1 {
+  color: #998504;
+  font-size: 3.5rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.about-description {
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.about-features {
+  margin: 40px 0;
+}
+
+.about-content h2 {
+  color: #998504;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.features-list p {
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.about-contact {
+  margin-top: 40px;
+}
+
+.about-contact p {
+  color: #fff;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.about-contact a {
+  color: #998504;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+
+.about-contact a:hover {
+  color: #b39d1c;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    padding: 20px;
+  }
+
+  .content-box {
+    padding: 20px;
+  }
+
+  .about-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-content h2 {
+    font-size: 2rem;
+  }
+
+  .about-description {
+    font-size: 1.1rem;
+  }
+
+  .section-image {
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content h1 {
+    font-size: 2rem;
+  }
+
+  .about-content h2 {
+    font-size: 1.75rem;
+  }
+
+  .section-image {
+    max-height: 150px;
+  }
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #998504;
+}
+
+.image-container {
+  margin-bottom: 25px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover {
+  transform: scale(1.02);
+}
+
+.section-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  max-height: 250px;
+  object-fit: cover;
+} 

@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  font-family: 'Inter', 'Roboto', 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to right, #417dfe, #7be8fe);
+  color: #130404; 
+}
+
+code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+  color: #d6336c; 
+  background-color: #932244; 
+  padding: 2px 4px;
+  border-radius: 4px;
+}

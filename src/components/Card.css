@@ -1,0 +1,92 @@
+.card {
+    width: 240px; 
+    background-image: linear-gradient(145deg, #6a11cb 0%, #2575fc 100%); 
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    padding: 20px; 
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); 
+    color: #fff; 
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+.card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4); 
+}
+
+.card-container {
+    margin-bottom: 20px; 
+    background: rgba(255, 255, 255, 0.1); 
+    border-radius: 12px;
+    padding: 10px 15px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.card-container:hover {
+    background-color: rgba(255, 255, 255, 0.2); 
+    transform: scale(1.03);
+}
+
+.card-title {
+    font-size: 22px; 
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #f8f9fa;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+.card-deadline {
+    font-size: 16px; 
+    color: #dcdcdc;
+}
+
+.card-description {
+    font-size: 18px; 
+    color: #eaeaea;
+    line-height: 1.5; /
+}
+
+.priority-high,
+.priority-medium,
+.priority-low {
+    font-size: 14px; 
+    padding: 6px 10px;
+    border-radius: 6px;
+    margin-top: 8px;
+    align-self: flex-start; 
+}
+
+.priority-high {
+    background-color: rgba(255, 69, 58, 0.2);
+    color: #ff453a;
+}
+
+.priority-medium {
+    background-color: rgba(48, 209, 88, 0.2); 
+    color: #30d158;
+}
+
+.priority-low {
+    background-color: rgba(255, 214, 10, 0.2); 
+    color: #ffd60a;
+}
+
+.delete-btn {
+    margin-top: auto; 
+    background-color: #e63946; 
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    bottom: 12px; 
+    right: 12px;
+}
+
+.delete-btn:hover {
+    background-color: #b71c1c; 
+}

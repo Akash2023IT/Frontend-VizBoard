@@ -1,0 +1,158 @@
+.dashboard-container {
+    min-height: 100vh;
+    background: #01102c;
+    padding-top: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+}
+
+.dashboard-header {
+    background: #030113e2;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+}
+
+.dashboard-header h1 {
+    color: #998504;
+    margin: 0;
+}
+
+.menu-button {
+    background: transparent;
+    border: none;
+    color: #998504;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.dashboard-content {
+    height: calc(100vh - 60px);
+    margin-top: 60px;
+    overflow-y: auto;
+}
+
+.main-content {
+    padding: 2rem;
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.sidebar-open {
+    margin-left: 250px;
+}
+
+.animated-text {
+    opacity: 0; /* Initial hidden state */
+    animation: fadeIn 1s ease-out forwards; /* Smooth fade-in animation */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* Fade in effect */
+    }
+}
+
+/* Refined Sidebar styles */
+.sidebar {
+    width: 300px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 1), rgb(12, 13, 38)); /* Match the dashboard background gradient */
+    color: #fff;
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px); /* Added blur for sidebar content */
+  }
+  
+
+.sidebar h3 {
+    color: #fbbf24; /* Golden yellow for header contrast */
+    font-size: 24px;
+}
+
+.sidebar ul li {
+    padding: 10px;
+    background-color: rgba(8, 73, 148, 0.57); /* Subtle background for list items */
+    border-radius: 8px;
+    margin: 5px 0;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.sidebar ul li:hover {
+    background-color: rgba(8, 73, 148, 0.57); /* Highlight on hover */
+}
+
+.sidebar ul li.selected {
+    background-color: rgba(8, 73, 148, 0.57); /* Selected project highlighted */
+}
+
+/* Refined Image and Text Section */
+.dashboard-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 40px 20px;
+}
+
+.dashboard-image {
+    max-width: 35%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Glossy image shadow */
+    transition: transform 0.3s ease-in-out;
+}
+
+.dashboard-image:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.dashboard-text {
+    color: white;
+    font-size: 24px;
+    line-height: 1.6;
+    max-width: 60%;
+}
+
+.dashboard-text h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #fbbf24; /* Golden yellow for header contrast */
+}
+
+.dashboard-text p {
+    font-size: 18px;
+    color: #e5e7eb; /* Slightly lighter text for better readability */
+}
+
+/* Refined Button Styles */
+button {
+    padding: 12px 18px;
+    border-radius: 8px;
+    background: #fbbf24; /* Golden button color */
+    color: black;
+    border: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #f39c12; /* Darker golden color on hover */
+}
+
+.no-project-message {
+    text-align: center;
+    color: #998504;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
