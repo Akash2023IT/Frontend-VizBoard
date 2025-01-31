@@ -9,7 +9,7 @@ export const TaskProvider = ({ children }) => {
     const fetchTasks = async (projectId) => {
         if (!projectId) return;
         try {
-            const response = await fetch(`${API_ENDPOINTS.TASKS}/project/${projectId}`, {
+            const response = await fetch(`${API_BASE_URL+API_ENDPOINTS.TASKS}/project/${projectId}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
@@ -46,7 +46,7 @@ export const TaskProvider = ({ children }) => {
 
     const updateTask = async (taskId, updates) => {
         try {
-            const response = await fetch(`${API_ENDPOINTS.TASKS}/${taskId}`, {
+            const response = await fetch(`${API_BASE_URL+API_ENDPOINTS.TASKS}/${taskId}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ export const TaskProvider = ({ children }) => {
 
     const deleteTask = async (taskId) => {
         try {
-            const response = await fetch(`${API_ENDPOINTS.TASKS}/${taskId}`, {
+            const response = await fetch(`${API_BASE_URL+API_ENDPOINTS.TASKS}/${taskId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`

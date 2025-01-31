@@ -61,7 +61,7 @@ export const ProjectProvider = ({ children }) => {
 
     const deleteProject = async (projectId) => {
         try {
-            const response = await fetch(`${API_ENDPOINTS.PROJECTS}/${projectId}`, {
+            const response = await fetch(`${API_BASE_URL+API_ENDPOINTS.PROJECTS}/${projectId}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
