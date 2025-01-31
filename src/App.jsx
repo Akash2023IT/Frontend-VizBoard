@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Dashboard from './components/DashBoard';
 import Signup from './components/Signup';
@@ -10,6 +10,7 @@ import Header from './components/Header';
 import { AuthContext } from './AuthContext';
 import { ProjectProvider } from './contexts/ProjectContext';
 import { TaskProvider } from './contexts/TaskContext';
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -27,26 +28,19 @@ function App() {
                     <Router>
                         <div className="App">
                             <Routes>
-                                <Route path="/signup" element={
-                                    <>
-                                        <Header />
-                                        <Signup />
-                                        <About />
-                                        <Contact />
-                                    </>
-                                } />
-                                <Route path="/login" element={
-                                    <>
-                                        <Header />
-                                        <Login />
-                                        <About />
-                                        <Contact />
-                                    </>
-                                } />
-                                <Route path="/dashboard" element={
-                                    isAuthenticated ? <Dashboard /> : <Navigate to="/login" />
-                                } />
-                                <Route path="/" element={<Navigate to="/signup" />} />
+                                <Route path="/" element={<Navigate to="/login" replace />} />
+                                <Route path="/login" element={<Login />} />
+                                <Route path="/signup" element={<Signup />} />
+                                <Route
+                                    path="/dashboard"
+                                    element={
+                                        <PrivateRoute>
+                                            <Dashboard />
+                                        </PrivateRoute>
+                                    }
+                                />
+                                <Route path="/about" element={<About />} />
+                                <Route path="/contact" element={<Contact />} />
                                 <Route path="*" element={<Navigate to="/signup" />} />
                             </Routes>
                         </div>

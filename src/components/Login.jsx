@@ -1,6 +1,5 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { AuthContext } from '../AuthContext';
 import { API_BASE_URL, API_ENDPOINTS } from '../config/api';
 import './Auth.css';
 
@@ -9,7 +8,6 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const { setIsAuthenticated } = useContext(AuthContext);
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -24,25 +22,34 @@ const Login = () => {
                 body: JSON.stringify({ username, password })
             });
 
-            const data = await response.json();
-
-            if (response.ok) {
-                localStorage.setItem('token', data.token);
-                setIsAuthenticated(true);
-                navigate('/dashboard');
-            } else {
-                setError(data.message || 'Login failed');
+            if (!response.ok) {
+                const errorText = await response.text();
+                console.error('Login failed:', errorText);
+                setError('Invalid username or password');
+                return;
             }
+
+            const data = await response.json();
+            localStorage.setItem('token', data.token);
+            navigate('/dashboard');
         } catch (error) {
+            console.error('Network error:', error);
             setError('Network error. Please try again.');
         }
     };
 
     return (
         <div className="auth-container">
+            <header className="auth-header">
+                <h1>VizBoard</h1>
+                <nav>
+                    <Link to="/about">About</Link>
+                    <Link to="/contact">Contact</Link>
+                </nav>
+            </header>
             <div className="welcome-section">
-                <h1 className="welcome-heading">Welcome Back</h1>
-                <p className="welcome-subheading">Login to access your projects</p>
+                <h1 className="welcome-heading">Welcome Back to VizBoard</h1>
+                <p className="welcome-subheading">Your personalized workflow management tool</p>
             </div>
             <div className="auth-form glass-effect">
                 <h2>Login</h2>
