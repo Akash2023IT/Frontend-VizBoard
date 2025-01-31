@@ -15,7 +15,7 @@ import PrivateRoute from './components/PrivateRoute';
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    // Check for existing token on mount instead of clearing it
+   
     useEffect(() => {
         const token = localStorage.getItem('token');
         setIsAuthenticated(!!token);
@@ -28,16 +28,16 @@ function App() {
                     <Router>
                         <div className="App">
                             <Routes>
-                                {/* Redirect root to login instead of signup */}
+                                
                                 <Route path="/" element={<Navigate to="/login" replace />} />
                                 
-                                {/* Public routes */}
+                               
                                 <Route path="/login" element={<Login />} />
                                 <Route path="/signup" element={<Signup />} />
                                 <Route path="/about" element={<About />} />
                                 <Route path="/contact" element={<Contact />} />
                                 
-                                {/* Protected route */}
+                               
                                 <Route
                                     path="/dashboard"
                                     element={
@@ -47,7 +47,7 @@ function App() {
                                     }
                                 />
                                 
-                                {/* Catch all route - redirect to login */}
+                                
                                 <Route path="*" element={<Navigate to="/login" />} />
                             </Routes>
                         </div>
