@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
-import { API_ENDPOINTS } from '../config/api';
+import { API_ENDPOINTS , API_BASE_URL} from '../config/api';
 
 export const TaskContext = createContext();
 
@@ -25,7 +25,7 @@ export const TaskProvider = ({ children }) => {
 
     const createTask = async (taskData) => {
         try {
-            const response = await fetch(API_ENDPOINTS.TASKS, {
+            const response = await fetch(API_BASE_URL+API_ENDPOINTS.TASKS, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -97,3 +97,4 @@ export const TaskProvider = ({ children }) => {
 };
 
 export const useTasks = () => useContext(TaskContext); 
+
