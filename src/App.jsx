@@ -15,10 +15,10 @@ import PrivateRoute from './components/PrivateRoute';
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    // Clear authentication on component mount
+    // Check for existing token on mount instead of clearing it
     useEffect(() => {
-        localStorage.removeItem('token');
-        setIsAuthenticated(false);
+        const token = localStorage.getItem('token');
+        setIsAuthenticated(!!token);
     }, []);
 
     return (
@@ -28,9 +28,16 @@ function App() {
                     <Router>
                         <div className="App">
                             <Routes>
+                                {/* Redirect root to login instead of signup */}
                                 <Route path="/" element={<Navigate to="/login" replace />} />
+                                
+                                {/* Public routes */}
                                 <Route path="/login" element={<Login />} />
                                 <Route path="/signup" element={<Signup />} />
+                                <Route path="/about" element={<About />} />
+                                <Route path="/contact" element={<Contact />} />
+                                
+                                {/* Protected route */}
                                 <Route
                                     path="/dashboard"
                                     element={
@@ -39,9 +46,9 @@ function App() {
                                         </PrivateRoute>
                                     }
                                 />
-                                <Route path="/about" element={<About />} />
-                                <Route path="/contact" element={<Contact />} />
-                                <Route path="*" element={<Navigate to="/signup" />} />
+                                
+                                {/* Catch all route - redirect to login */}
+                                <Route path="*" element={<Navigate to="/login" />} />
                             </Routes>
                         </div>
                     </Router>
