@@ -35,7 +35,7 @@ export const ProjectProvider = ({ children }) => {
     const createProject = async (name) => {
         try {
             console.log('Creating project with URL:', API_ENDPOINTS.PROJECTS);
-            const response = await fetch(API_ENDPOINTS.PROJECTS, {
+            const response = await fetch(API_BASE_URL+API_ENDPOINTS.PROJECTS, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
